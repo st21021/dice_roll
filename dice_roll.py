@@ -1,6 +1,9 @@
 import tkinter as tk
 import random as r
 
+RED = "#ff4444"
+GREEN = "#44ff44"
+
 def gen_rand():
     '''Generate two random numbers and display with labels'''
     num1.set(r.randint(1,6))
@@ -8,12 +11,12 @@ def gen_rand():
     count.set(count.get()+1)
     if num1.get() == 6 and num2.get() == 6:
         # Set label background to green
-        lbl1.configure(bg="#44ff44")
-        lbl2.configure(bg="#44ff44")
+        lbl1.configure(bg=RED)
+        lbl2.configure(bg=RED)
     else:
         # Set label background to red
-        lbl1.configure(bg="#ff4444")
-        lbl2.configure(bg="#ff4444")
+        lbl1.configure(bg=RED)
+        lbl2.configure(bg=RED)
 
 def close_window():
     '''Close the tk root window'''
@@ -33,8 +36,8 @@ btn_quit = tk.Button(root, text="Quit", command=close_window)
 btn_random = tk.Button(root, text="Random", command=gen_rand)
 
 # Labels to display dice rolls
-lbl1 = tk.Label(root, textvariable=num1, bg="#ff4444", fg="black")
-lbl2 = tk.Label(root, textvariable=num2, bg="#ff4444", fg="black")
+lbl1 = tk.Label(root, textvariable=num1, bg=RED, fg="black")
+lbl2 = tk.Label(root, textvariable=num2, bg=RED, fg="black")
 
 # Labels to display the number of dice rolls
 lbl_roll = tk.Label(root, text="Roll count =", justify="right")
@@ -45,7 +48,7 @@ btn_quit.grid(row=0, column=0, sticky="NSWE", padx=10, pady=3)
 btn_random.grid(row=0, column=1, sticky="NSWE", padx=10, pady=3)
 lbl1.grid(row=1, column=0, sticky="NSWE", padx=10, pady=3)
 lbl2.grid(row=1, column=1, sticky="NSWE", padx=10, pady=3)
-lbl_roll.grid(row=2, column=0, sticky="E", padx=10, pady=3)
-lbl_count.grid(row=2, column=1, sticky="W", padx=10, pady=3)
+lbl_roll.grid(row=2, column=0, sticky="E", padx=10, pady=3) # Right aligned
+lbl_count.grid(row=2, column=1, sticky="W", padx=10, pady=3) # Left aligned
 
 root.mainloop()
